@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the architecture of a simple CRUD (Create, Read, Update, Delete) ToDo list application built with .NET 9. The application provides a RESTful API for managing tasks in a todo list, with data stored in-memory (no external database required).
+This document describes the architecture of a simple CRUD (Create, Read, Update, Delete) ToDo list application built with .NET 9. The application provides a RESTful API for managing tasks in a todo list, with data stored in text file (txt) (no external database required).
 
 ## Functional Requirements
 
@@ -24,7 +24,7 @@ The ToDo List API should support the following functionality:
 
 - **Framework**: .NET 9.0
 - **API**: ASP.NET Core Web API
-- **Data Storage**: In-memory collection (no external database)
+- **Data Storage**: Stored in text file (no external database)
 - **Project Type**: Web API
 - **Architecture Pattern**: Clean Architecture
 
