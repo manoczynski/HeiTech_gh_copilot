@@ -118,31 +118,43 @@ namespace TodoListApi.Api.Controllers
 
         private int GetPrimeNumber()
         {
+            // Use Sieve of Eratosthenes for better performance
+            // Estimate upper bound using prime number theorem (n * ln(n) + n * ln(ln(n)))
+            int upperBound = 350000; // Conservative estimate for 30000th prime
+            bool[] isComposite = new bool[upperBound + 1];
             int count = 0;
-            int number = 2;
-            while (count < 30000)
+            
+            for (int i = 2; i <= upperBound; i++)
             {
-                if (IsPrime(number))
+            if (!isComposite[i])
+            {
+                count++;
+                if (count == 30000)
+                return i;
+                
+                // Mark all multiples as composite
+                for (int j = i * 2; j <= upperBound; j += i)
                 {
-                    count++;
+                isComposite[j] = true;
                 }
-                number++;
             }
-            return number - 1;
+            }
+            
+            return -1; // Should not reach here with proper upperBound
         }
 
         private bool IsPrime(int number)
         {
-            if (number < 2)
+            if (number < 2) return false;
+            if (number == 2) return true;
+            if (number % 2 == 0) return false;
+            
+            int sqrt = (int)Math.Sqrt(number);
+            // Only check odd divisors up to sqrt
+            for (int i = 3; i <= sqrt; i += 2)
             {
+            if (number % i == 0)
                 return false;
-            }
-            for (int i = 2; i <= number / 2; i++)
-            {
-                if (number % i == 0)
-                {
-                    return false;
-                }
             }
             return true;
         }
