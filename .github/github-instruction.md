@@ -1,2 +1,2 @@
-- Document the code in .net standard
+- Document the code in .NET Standard
 - Use standard naming convention for c# projects
