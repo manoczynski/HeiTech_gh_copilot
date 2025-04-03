@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>TodoListApi.Application</RootNamespace>
+    <AssemblyName>TodoListApi.Application</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TodoListApi.Domain\TodoListApi.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

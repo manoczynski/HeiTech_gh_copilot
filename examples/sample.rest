@@ -1,0 +1,69 @@
+### Variables
+@baseUrl = http://localhost:5000
+@contentType = application/json
+@createdTaskId = d191bed8-5632-4523-9790-56eae2ff8a6c
+
+### 1. Create a new task
+POST {{baseUrl}}/api/todo
+Content-Type: {{contentType}}
+
+{
+    "title": "Complete project documentation",
+    "description": "Finish writing the API documentation with examples",
+    "dueDate": "2023-12-31T23:59:59",
+    "priority": 2
+}
+
+### 2. Get all tasks
+GET {{baseUrl}}/api/todo
+Content-Type: {{contentType}}
+
+
+### 3. Get a specific task by ID
+# Replace the ID with an actual ID from a previous response
+GET {{baseUrl}}/api/todo/{{createdTaskId}}
+Content-Type: {{contentType}}
+
+### 4. Update an existing task
+# Replace the ID with an actual ID from a previous response
+PUT {{baseUrl}}/api/todo/{{createdTaskId}}
+Content-Type: {{contentType}}
+
+{
+    "id": "{{createdTaskId}}",
+    "title": "Updated task title",
+    "description": "This description has been updated",
+    "dueDate": "2023-12-15T12:00:00",
+    "priority": 1,
+    "isCompleted": false
+}
+
+### 5. Mark a task as completed
+# Based on README, though implementation may vary
+PATCH {{baseUrl}}/api/todo/{{createdTaskId}}/complete
+Content-Type: {{contentType}}
+
+### 6. Delete a task
+DELETE {{baseUrl}}/api/todo/{{createdTaskId}}
+Content-Type: {{contentType}}
+
+### 7. Filter tasks by completion status (completed)
+GET {{baseUrl}}/api/todo/filter?isCompleted=true
+Content-Type: {{contentType}}
+
+### 8. Filter tasks by completion status (not completed)
+GET {{baseUrl}}/api/todo/filter?isCompleted=false
+Content-Type: {{contentType}}
+
+### 9. Filter tasks by priority
+GET {{baseUrl}}/api/todo/filter?priority=2
+Content-Type: {{contentType}}
+
+### 10. Sort tasks by due date
+GET {{baseUrl}}/api/todo/filter?sortByDueDate=true
+Content-Type: {{contentType}}
+
+
+### 11. Get prime numbers within a range
+GET {{baseUrl}}/api/todo/prime
+Content-Type: {{contentType}}
